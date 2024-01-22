@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Blog</title>
-    <!-- Update the href attribute for the stylesheet to use a relative path -->
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
@@ -16,18 +15,18 @@
         <div class="split-container">
             <div class="side-container">
                 <h2>Creator</h2>
-                <img class="creator-svg" src="{{ url_for('static', filename='creator.png') }}" alt="Creator SVG">
+                <!-- Update the src attribute for the Creator image -->
+                <img class="creator-svg" src="css/creator.png" alt="Creator SVG">
                 <div class="button-container">
-                    <!-- Update the href attribute for the Creator button -->
                     <a style="text-decoration:none" href="https://mychronicle.pythonanywhere.com/login/creator"><button>Log in as Creator</button></a>
                 </div>
             </div>
             <div class="vertical-line"></div> <!-- Vertical line -->
             <div class="side-container">
                 <h2>Guest</h2>
-                <img class="guest-svg" src="{{ url_for('static', filename='guest.png') }}" alt="Guest SVG">
+                <!-- Update the src attribute for the Guest image -->
+                <img class="guest-svg" src="css/guest.png" alt="Guest SVG">
                 <div class="button-container">
-                    <!-- Update the href attribute for the Guest button -->
                     <a style="text-decoration:none" href="https://mychronicle.pythonanywhere.com/display_page?user_type=guest"><button>Continue as Guest</button></a>
                 </div>
             </div>
