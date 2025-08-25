@@ -151,7 +151,7 @@
 	};
 
 	
-	// Contact form handling with Formspree
+	// Contact form handling with mailto
 	var contactForm = function() {
 		$('#contact-form').on('submit', function(e) {
 			e.preventDefault();
@@ -159,55 +159,51 @@
 			var submitBtn = $('#submit-btn');
 			var statusDiv = $('#contact-status');
 			var form = this;
-			var formData = new FormData(form);
 			
-			// Show loading state
-			submitBtn.val('Sending...');
+			// Get form data
+			var firstname = $('input[name="firstname"]').val();
+			var lastname = $('input[name="lastname"]').val();
+			var email = $('input[name="email"]').val();
+			var subject = $('input[name="subject"]').val();
+			var message = $('textarea[name="message"]').val();
+			
+			// Create email body
+			var emailBody = 'Hello Pratham,\n\n';
+			emailBody += 'Name: ' + firstname + ' ' + lastname + '\n';
+			emailBody += 'Email: ' + email + '\n\n';
+			emailBody += 'Message:\n' + message + '\n\n';
+			emailBody += 'Best regards,\n' + firstname + ' ' + lastname;
+			
+			// Create mailto link
+			var mailtoLink = 'mailto:prathamssaraf@gmail.com';
+			mailtoLink += '?subject=' + encodeURIComponent('Portfolio Contact: ' + subject);
+			mailtoLink += '&body=' + encodeURIComponent(emailBody);
+			
+			// Show loading state briefly
+			submitBtn.val('Opening Email...');
 			submitBtn.prop('disabled', true);
 			statusDiv.hide();
 			
-			// Send form data to Formspree
-			fetch(form.action, {
-				method: 'POST',
-				body: formData,
-				headers: {
-					'Accept': 'application/json'
-				}
-			})
-			.then(function(response) {
-				if (response.ok) {
-					// Show success message
-					statusDiv.html('<strong>Success!</strong> Your message has been sent successfully. I\'ll get back to you soon!');
-					statusDiv.css({
-						'background-color': '#d4edda',
-						'border-color': '#c3e6cb',
-						'color': '#155724'
-					});
-					statusDiv.show();
-					
-					// Reset form
-					form.reset();
-				} else {
-					throw new Error('Form submission failed');
-				}
-			})
-			.catch(function(error) {
-				console.log('Form submission error:', error);
+			setTimeout(function() {
+				// Open email client
+				window.location.href = mailtoLink;
 				
-				// Show error message with fallback
-				statusDiv.html('<strong>Oops!</strong> There was an error sending your message. Please try again or contact me directly at <a href="mailto:prathamssaraf@gmail.com">prathamssaraf@gmail.com</a>');
+				// Show success message
+				statusDiv.html('<strong>Email client opened!</strong> Your default email app should open with the message pre-filled. Just click send!<br><br>If it didn\'t open, you can email me directly at <a href="mailto:prathamssaraf@gmail.com">prathamssaraf@gmail.com</a>');
 				statusDiv.css({
-					'background-color': '#f8d7da',
-					'border-color': '#f5c6cb',
-					'color': '#721c24'
+					'background-color': '#d4edda',
+					'border-color': '#c3e6cb',
+					'color': '#155724'
 				});
 				statusDiv.show();
-			})
-			.finally(function() {
+				
 				// Reset button state
 				submitBtn.val('Send Message');
 				submitBtn.prop('disabled', false);
-			});
+				
+				// Reset form
+				form.reset();
+			}, 500);
 		});
 	};
 
