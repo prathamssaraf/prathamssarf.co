@@ -103,6 +103,22 @@
 	
 	};
 
+	// Smooth scroll for contact button
+	var smoothScroll = function() {
+		$('a[href*="#"]:not([href="#"])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				if (target.length) {
+					$('html, body').animate({
+						scrollTop: target.offset().top
+					}, 1000, 'easeInOutExpo');
+					return false;
+				}
+			}
+		});
+	};
+
 	var pieChart = function() {
 		$('.chart').easyPieChart({
 			scaleColor: false,
@@ -135,6 +151,70 @@
 	};
 
 	
+	// Contact form handling
+	var contactForm = function() {
+		// Initialize EmailJS
+		emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+		
+		$('#contact-form').on('submit', function(e) {
+			e.preventDefault();
+			
+			var submitBtn = $('#submit-btn');
+			var statusDiv = $('#contact-status');
+			var form = this;
+			
+			// Show loading state
+			submitBtn.val('Sending...');
+			submitBtn.prop('disabled', true);
+			statusDiv.hide();
+			
+			// Get form data
+			var templateParams = {
+				from_name: $('#fname').val() + ' ' + $('#lname').val(),
+				from_email: $('#email').val(),
+				subject: $('#subject').val(),
+				message: $('#message').val(),
+				to_name: 'Pratham Saraf'
+			};
+			
+			// Send email using EmailJS
+			// Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
+			emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+				.then(function(response) {
+					console.log('SUCCESS!', response.status, response.text);
+					
+					// Show success message
+					statusDiv.html('<strong>Success!</strong> Your message has been sent successfully. I\'ll get back to you soon!');
+					statusDiv.css({
+						'background-color': '#d4edda',
+						'border-color': '#c3e6cb',
+						'color': '#155724'
+					});
+					statusDiv.show();
+					
+					// Reset form
+					form.reset();
+					
+				}, function(error) {
+					console.log('FAILED...', error);
+					
+					// Show error message with fallback
+					statusDiv.html('<strong>Oops!</strong> There was an error sending your message. Please try again or contact me directly at <a href="mailto:prathamssaraf@gmail.com">prathamssaraf@gmail.com</a>');
+					statusDiv.css({
+						'background-color': '#f8d7da',
+						'border-color': '#f5c6cb',
+						'color': '#721c24'
+					});
+					statusDiv.show();
+				})
+				.finally(function() {
+					// Reset button state
+					submitBtn.val('Send Message');
+					submitBtn.prop('disabled', false);
+				});
+		});
+	};
+
 	$(function(){
 		contentWayPoint();
 		goToTop();
@@ -143,6 +223,8 @@
 		parallax();
 		// pieChart();
 		skillsWayPoint();
+		contactForm();
+		smoothScroll();
 	});
 
 
