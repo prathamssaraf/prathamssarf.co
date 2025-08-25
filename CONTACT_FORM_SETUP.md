@@ -1,6 +1,6 @@
 # Contact Form Setup Instructions
 
-Your contact form has been updated to work with EmailJS, a service that allows you to send emails directly from your static website without a backend server.
+Your contact form has been updated to work with Formspree, a simple service that sends form submissions directly to your email without any complex setup.
 
 ## What's Been Implemented
 
@@ -9,60 +9,27 @@ Your contact form has been updated to work with EmailJS, a service that allows y
 - Added visual feedback for success/error messages
 - Added loading state when sending messages
 - Made "Contact Me" button scroll smoothly to the contact form
-- Added EmailJS integration for sending emails
+- Added Formspree integration for sending emails directly to your Gmail
 
-## Setup Required (EmailJS Configuration)
+## ✨ Ready to Use - No Additional Setup Required!
 
-To make the contact form fully functional, you need to set up EmailJS:
+Your contact form is **already configured** to send emails to `prathamssaraf@gmail.com` using Formspree.
 
-### Step 1: Create EmailJS Account
-1. Go to [https://www.emailjs.com/](https://www.emailjs.com/)
-2. Sign up for a free account
-3. Verify your email address
+### How It Works
 
-### Step 2: Create Email Service
-1. In your EmailJS dashboard, go to "Email Services"
-2. Click "Add New Service"
-3. Choose your email provider (Gmail, Outlook, etc.)
-4. Follow the setup instructions for your chosen provider
-5. Note down your **Service ID**
+1. **User fills out the form** on your website
+2. **Form submits to Formspree** (a free service)
+3. **Formspree sends the message** directly to your Gmail inbox
+4. **You receive the email** with all the form details
 
-### Step 3: Create Email Template
-1. Go to "Email Templates" in your dashboard
-2. Click "Create New Template"
-3. Use this template structure:
+### First Use Setup (One-time only)
 
-**Template Variables:**
-```
-From: {{from_name}} <{{from_email}}>
-To: {{to_name}}
-Subject: Portfolio Contact: {{subject}}
+The **first time** someone submits your contact form:
+1. Formspree will send you a **confirmation email**
+2. **Click the confirmation link** in that email
+3. After confirmation, all future messages will be delivered automatically
 
-Message:
-{{message}}
-
----
-This message was sent from your portfolio contact form.
-```
-
-4. Save the template and note down your **Template ID**
-
-### Step 4: Get Your Public Key
-1. Go to "Account" section in your EmailJS dashboard
-2. Find your **Public Key** (starts with "user_" or is a random string)
-
-### Step 5: Update Configuration
-1. Open `js/main.js`
-2. Replace the following placeholders:
-   - `YOUR_PUBLIC_KEY` with your actual public key
-   - `YOUR_SERVICE_ID` with your service ID
-   - `YOUR_TEMPLATE_ID` with your template ID
-
-**Example:**
-```javascript
-emailjs.init("user_abcd1234efgh5678"); // Your public key
-emailjs.send('service_abc123', 'template_xyz789', templateParams) // Your service and template IDs
-```
+That's it! No accounts to create, no API keys to manage.
 
 ## Testing the Form
 
