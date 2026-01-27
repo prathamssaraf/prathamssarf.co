@@ -1,0 +1,832 @@
+/* =====================================================
+   MODERN PORTFOLIO THEME
+   Dark mode with orange accents & glassmorphism
+   ===================================================== */
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #12121a;
+  --color-bg-surface: #1a1a2e;
+  --color-bg-glass: rgba(26, 26, 46, 0.7);
+  
+  --color-primary: #FF9000;
+  --color-primary-light: #FFB347;
+  --color-primary-dark: #CC7300;
+  --color-primary-glow: rgba(255, 144, 0, 0.3);
+  
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #6b6b6b;
+  
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 144, 0, 0.3);
+  
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 100px;
+  --container-padding: 20px;
+  
+  /* Effects */
+  --glass-blur: 20px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px var(--color-primary-glow);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-primary);
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+.navbar-modern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  background: transparent;
+  transition: var(--transition-normal);
+}
+
+.navbar-modern.scrolled {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+}
+
+.navbar-modern .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary) !important;
+  text-decoration: none;
+}
+
+.navbar-brand span {
+  color: var(--color-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition-fast);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+#fh5co-header,
+.fh5co-cover {
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+  min-height: 100vh;
+}
+
+#fh5co-header .overlay,
+.fh5co-cover .overlay {
+  background: linear-gradient(180deg, 
+    rgba(10, 10, 15, 0.3) 0%, 
+    rgba(255, 144, 0, 0.1) 50%, 
+    rgba(10, 10, 15, 0.5) 100%);
+}
+
+.profile-thumb {
+  width: 220px !important;
+  height: 220px !important;
+  border: 4px solid var(--color-primary) !important;
+  box-shadow: var(--shadow-glow), var(--shadow-lg);
+  transition: var(--transition-normal);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: var(--shadow-glow), var(--shadow-lg); }
+  50% { box-shadow: 0 0 60px var(--color-primary-glow), var(--shadow-lg); }
+}
+
+.profile-thumb:hover {
+  transform: scale(1.05);
+}
+
+#fh5co-header .display-tc h1,
+.fh5co-cover .display-tc h1 {
+  font-family: var(--font-heading) !important;
+  font-size: 3.5rem;
+  font-weight: 700;
+  transform: none !important;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+#fh5co-header .display-tc h1 span::before,
+#fh5co-header .display-tc h1 span::after,
+.fh5co-cover .display-tc h1 span::before,
+.fh5co-cover .display-tc h1 span::after {
+  background: var(--color-primary);
+}
+
+#fh5co-header .display-tc h3,
+.fh5co-cover .display-tc h3 {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fh5co-social-icons li a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary) !important;
+  transition: var(--transition-normal);
+}
+
+.fh5co-social-icons li a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--color-primary-glow);
+}
+
+.fh5co-social-icons li a i {
+  font-size: 20px !important;
+}
+
+/* Blog Button */
+.blog-button .btn {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: var(--transition-normal);
+}
+
+.blog-button .btn:hover {
+  background: var(--color-primary);
+  color: var(--color-bg-primary) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+  color: var(--color-text-secondary);
+  font-size: 2rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-15px); }
+  60% { transform: translateX(-50%) translateY(-7px); }
+}
+
+/* =====================================================
+   SECTIONS GENERAL
+   ===================================================== */
+#fh5co-about,
+#fh5co-resume,
+#fh5co-research,
+#fh5co-features,
+#fh5co-skills,
+#fh5co-activities,
+#fh5co-consult {
+  background: var(--color-bg-primary);
+  padding: var(--section-padding) 0;
+}
+
+.fh5co-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.fh5co-heading h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.fh5co-bg-dark,
+.fh5co-bg-color {
+  background: var(--color-bg-secondary) !important;
+}
+
+/* =====================================================
+   ABOUT SECTION
+   ===================================================== */
+#fh5co-about .info li .first-block {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+#fh5co-about .info li .second-block {
+  color: var(--color-text-secondary);
+}
+
+#fh5co-about h2 {
+  color: var(--color-text-primary);
+}
+
+#fh5co-about p {
+  color: var(--color-text-secondary);
+}
+
+/* =====================================================
+   TIMELINE (Resume/Research)
+   ===================================================== */
+.timeline:before {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-border));
+}
+
+.timeline > li > .timeline-badge {
+  background: var(--color-primary) !important;
+  box-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.timeline-heading > div h3 {
+  background: var(--color-bg-glass) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.timeline-panel {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  padding: 25px;
+  border-radius: 12px;
+  transition: var(--transition-normal);
+}
+
+.timeline-panel:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-title {
+  color: var(--color-text-primary) !important;
+  font-weight: 600;
+}
+
+.company {
+  color: var(--color-primary) !important;
+  font-weight: 500;
+}
+
+.timeline-body p,
+.timeline-body li {
+  color: var(--color-text-secondary);
+}
+
+/* =====================================================
+   PROJECTS SECTION
+   ===================================================== */
+#fh5co-features {
+  background: var(--color-bg-secondary) !important;
+}
+
+#fh5co-features h2 {
+  color: var(--color-text-primary);
+}
+
+.fh5co-blog {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.fh5co-blog:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg), 0 0 30px var(--color-primary-glow);
+}
+
+.fh5co-blog .blog-bg {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fh5co-blog .blog-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.8) 100%);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.fh5co-blog:hover .blog-bg::after {
+  opacity: 1;
+}
+
+.fh5co-blog .blog-text {
+  padding: 25px;
+  background: transparent;
+}
+
+.fh5co-blog .posted_on {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fh5co-blog h3 a {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.fh5co-blog p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.fh5co-blog .stuff li a {
+  color: var(--color-primary);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fh5co-blog .stuff li a:hover {
+  color: var(--color-primary-light);
+}
+
+/* =====================================================
+   SKILLS SECTION
+   ===================================================== */
+#fh5co-skills {
+  background: var(--color-bg-primary);
+}
+
+#fh5co-skills .feature-left {
+  text-align: center;
+  padding: 30px;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  margin-bottom: 30px;
+  transition: var(--transition-normal);
+}
+
+#fh5co-skills .feature-left:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+#fh5co-skills .feature-left .icon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: 0 10px 30px var(--color-primary-glow);
+}
+
+#fh5co-skills .feature-left .icon i {
+  color: var(--color-text-primary) !important;
+}
+
+#fh5co-skills .feature-left h3 {
+  color: var(--color-text-primary);
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+#fh5co-skills .feature-left p {
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   ACTIVITIES SECTION
+   ===================================================== */
+#fh5co-activities .timeline-panel {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#fh5co-activities h3 {
+  color: var(--color-text-primary);
+}
+
+#fh5co-activities p {
+  color: var(--color-text-secondary);
+}
+
+/* =====================================================
+   HIRE ME / CTA SECTION
+   ===================================================== */
+#fh5co-started {
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-primary)) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#fh5co-started::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 50%);
+  animation: rotate-bg 20s linear infinite;
+}
+
+@keyframes rotate-bg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#fh5co-started .overlay {
+  background: rgba(10, 10, 15, 0.8);
+}
+
+#fh5co-started h2 {
+  color: var(--color-text-primary);
+  font-size: 2.5rem;
+}
+
+#fh5co-started p {
+  color: var(--color-text-secondary);
+}
+
+#fh5co-started .btn {
+  background: var(--color-primary);
+  border: none;
+  color: var(--color-bg-primary) !important;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: var(--transition-normal);
+}
+
+#fh5co-started .btn:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* =====================================================
+   CONTACT SECTION
+   ===================================================== */
+#fh5co-consult {
+  background: var(--color-bg-primary);
+}
+
+#fh5co-consult .video {
+  filter: brightness(0.5);
+}
+
+#fh5co-consult .choose {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 50px;
+}
+
+#fh5co-consult h2 {
+  color: var(--color-text-primary);
+  margin-bottom: 30px;
+}
+
+#fh5co-consult .form-control {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: var(--transition-fast);
+}
+
+#fh5co-consult .form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary-glow);
+  outline: none;
+}
+
+#fh5co-consult .form-control::placeholder {
+  color: var(--color-text-muted);
+}
+
+#fh5co-consult textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+#fh5co-consult .btn-primary {
+  background: var(--color-primary);
+  border: none;
+  color: var(--color-bg-primary) !important;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: var(--transition-normal);
+  width: auto;
+}
+
+#fh5co-consult .btn-primary:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+#fh5co-footer {
+  background: var(--color-bg-secondary);
+  padding: 40px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+#fh5co-footer p {
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+#fh5co-footer a {
+  color: var(--color-primary);
+}
+
+/* =====================================================
+   BACK TO TOP BUTTON
+   ===================================================== */
+.gototop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.gototop.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gototop a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-bg-primary);
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.gototop a:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-5px);
+}
+
+/* =====================================================
+   LOADER
+   ===================================================== */
+.fh5co-loader {
+  background: var(--color-bg-primary);
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+.animate-box {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-box.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing animation for title */
+.typed-text {
+  border-right: 3px solid var(--color-primary);
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: var(--color-primary); }
+  50% { border-color: transparent; }
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+.glass {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--color-border);
+}
+
+.glow-primary {
+  box-shadow: var(--shadow-glow);
+}
+
+.text-primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+   ===================================================== */
+@media (max-width: 992px) {
+  :root {
+    --section-padding: 70px;
+  }
+  
+  #fh5co-header .display-tc h1,
+  .fh5co-cover .display-tc h1 {
+    font-size: 2.5rem;
+  }
+  
+  .fh5co-heading h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 50px;
+  }
+  
+  #fh5co-header .display-tc h1,
+  .fh5co-cover .display-tc h1 {
+    font-size: 2rem;
+  }
+  
+  .profile-thumb {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .fh5co-heading h2 {
+    font-size: 1.75rem;
+  }
+  
+  #fh5co-consult .choose {
+    padding: 30px 20px;
+  }
+}

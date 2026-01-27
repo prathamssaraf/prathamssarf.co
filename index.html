@@ -1,790 +1,1038 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Profile &mdash; </title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pratham Saraf | Data Science & AI Researcher | NYU</title>
+    <meta name="description" content="Pratham Saraf - Master's student in Computer Science at NYU specializing in Data Science, AI Research, and Deep Learning." />
+    <meta name="keywords" content="Pratham Saraf, Data Science, AI Researcher, NYU, Deep Learning, Machine Learning" />
+    <meta name="author" content="Pratham Saraf" />
 
-	
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Pratham Saraf | Data Science & AI Researcher"/>
+    <meta property="og:image" content="images/pratham.jpg"/>
+    <meta property="og:url" content="https://prathamssaraf.co"/>
+    <meta property="og:description" content="Master's student at NYU specializing in AI, Deep Learning, and Computer Vision research."/>
 
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-4hz1R/TPXzSrx+NLQxKjw88Lgs5q5N24TCBAQuZklP+ZIOzJbW1YKtM7xMvjAfnmCpLWmgbEJ1Gzc/zFZv0tvw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-cyan": "#06b6d4",
+                        "background-dark": "#101622",
+                        "surface-dark": "#192233",
+                        "card-dark": "#192233",
+                        "border-dark": "#232f48",
+                        "text-dim": "#92a4c9",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: "Space Grotesk", sans-serif; scroll-behavior: smooth; }
+        .blueprint-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(35, 47, 72, 0.4) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(35, 47, 72, 0.4) 1px, transparent 1px);
+        }
+        .bg-glow { background: radial-gradient(circle at center, rgba(17, 82, 212, 0.15) 0%, transparent 70%); }
+        ::-webkit-scrollbar { width: 8px; background: #101622; }
+        ::-webkit-scrollbar-thumb { background: #232f48; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1152d4; }
+        .glow-box { box-shadow: 0 0 15px rgba(17, 82, 212, 0.15); }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: rgba(25, 34, 51, 0.98); border: 1px solid #232f48; border-radius: 1rem; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; transform: scale(0.9); transition: all 0.3s; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        /* Active nav link styling */
+        .nav-links a.active { color: #ffffff !important; text-shadow: 0 0 10px rgba(17, 82, 212, 0.5); }
+        .nav-links a.active::before { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #1152d4, transparent); }
+        .nav-links a { position: relative; }
+    </style>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- Contact form styling -->
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTRKMPFGBT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MTRKMPFGBT');
+    </script>
+</head>
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTRKMPFGBT"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+<body class="bg-background-dark text-white font-display overflow-x-hidden">
 
-	  gtag('config', 'G-MTRKMPFGBT');
-	</script>
+<!-- Background -->
+<div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 blueprint-grid opacity-60"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-glow blur-3xl opacity-60 rounded-full"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-glow blur-3xl opacity-40 rounded-full"></div>
+</div>
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">	
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<div class="profile-thumb" style="background: #ffffff; border-radius: 50%; width: 200px; height: 200px; background-image: url(images/pratham.jpg); background-size: cover; background-position: center;"></div>
-							<div class="blog-button">
-								<a href="myblog.html" class="btn btn-primary">My Blog</a>
-							</div>
-							<h1><span>Pratham Saraf</span></h1>
-							<h3><span>Data Science & AI Researcher</span></h3>
-							<p>
-								<!-- Load the Ionicons CSS file from a CDN -->
-								<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-border-dark bg-[#111722]/95 backdrop-blur px-6 py-3">
+    <div class="flex items-center gap-4 text-white">
+        <div class="size-8 rounded bg-border-dark flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-xl">terminal</span>
+        </div>
+        <h2 class="text-base font-bold font-mono hidden md:block">
+            <span class="text-primary">user@pratham</span>:<span class="text-accent-cyan">~/portfolio</span> $ ./view_site.sh
+        </h2>
+    </div>
+    <nav class="nav-links hidden md:flex items-center gap-4 font-mono text-sm">
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#hero">[home]</a>
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#projects">[projects]</a>
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#experience">[work]</a>
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#education">[edu]</a>
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#research">[research]</a>
+        <a class="nav-link text-text-dim hover:text-white transition-colors" href="#contact">[contact]</a>
+    </nav>
+    <a href="pratham_resume_oct_new.pdf" target="_blank" class="hidden md:flex items-center gap-2 bg-primary hover:bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded transition-colors shadow-[0_0_15px_rgba(17,82,212,0.4)]">
+        <span class="material-symbols-outlined text-lg">download</span>
+        <span>RESUME</span>
+    </a>
+    <button class="md:hidden text-white" id="mobile-menu-btn">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</header>
 
-								<!-- Add the social icons to your HTML code -->
-								<ul class="fh5co-social-icons">
-								<li><a href="https://twitter.com/prathamssaraf"><i class="icon-twitter2"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/prathamssaraf/"><i class="icon-linkedin2"></i></a></li>
-								<li><a href="https://github.com/prathamssaraf"><i class="ion-social-github"></i></a></li>
-								<li><a href="https://leetcode.com/prathamssaraf/"><i class="ion-code"></i></a></li>
-								</ul>
+<!-- Hero Section -->
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-24 pb-12" id="hero">
+    <div class="max-w-[1000px] w-full flex flex-col items-center text-center gap-8">
+        <!-- Profile Picture -->
+        <div class="relative group">
+            <!-- Corner brackets -->
+            <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent-cyan"></div>
+            <div class="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-accent-cyan"></div>
+            <div class="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-accent-cyan"></div>
+            <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-accent-cyan"></div>
+            <!-- Glow effect -->
+            <div class="absolute inset-0 bg-accent-cyan/20 blur-xl rounded-full scale-110 group-hover:scale-125 transition-transform duration-500"></div>
+            <!-- Image container -->
+            <div class="relative size-32 sm:size-40 rounded-lg overflow-hidden border border-border-dark bg-surface-dark">
+                <img src="images/pratham.jpg" alt="Pratham Saraf" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"/>
+                <!-- Scanline overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent-cyan/5 to-transparent opacity-50 pointer-events-none"></div>
+            </div>
+            <!-- ID Label -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-background-dark border border-border-dark px-3 py-0.5 rounded text-[10px] font-mono text-accent-cyan whitespace-nowrap">
+                ID: SARAF_P
+            </div>
+        </div>
 
-								  
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 backdrop-blur-sm mt-4">
+            <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <p class="text-xs sm:text-sm font-medium text-emerald-400 tracking-wide uppercase">Open to Work | Graduating May 2026</p>
+        </div>
 
-	<div id="fh5co-about" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>About Me</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<ul class="info">
-						<li><span class="first-block">Full Name:</span><span class="second-block">Pratham Saraf</span></li>
-						<li><span class="first-block">Phone:</span><span class="second-block">+1 347-793-7420</span></li>
-						<li><span class="first-block">Email:</span><span class="second-block">prathamssaraf@gmail.com</span></li>
-						<li><span class="first-block">Location:</span><span class="second-block">Brooklyn, New York</span></li>
-					</ul>
-				</div>
-				<div class="col-md-8">
-					<h2>Hello There!</h2>
-					<p>Hi there! I'm Pratham, a Master's student in Computer Science at New York University with a CGPA of 3.88/4, currently serving as a Teaching Assistant for Deep Learning and Research Assistant in AI & Neuroscience. I hold a B.Tech in Data Science Engineering from Manipal University Jaipur where I graduated with distinction (8.91/10 CGPA) and received the Dean's List Excellence in Academics Award.</p>
+        <!-- Headings -->
+        <div class="flex flex-col gap-2">
+            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.9]">Pratham Saraf</h1>
+            <h2 class="text-xl sm:text-2xl text-text-dim font-light tracking-wide mt-2">MS in Computer Science @ NYU</h2>
+        </div>
 
-					<p>Currently, I'm engaged in cutting-edge research projects including facial morphing detection pipelines using FISWG 19-feature frameworks with Prof. Banerjee, and vision models for behavioral neuroscience with Prof. Froemke. My research focuses on developing lightweight AI architectures, including distillation of 72B models into efficient 7B architectures for real-world deployment.</p>
-					
-					<p>With professional experience at Hewlett Packard Enterprise, ONGC, and OnFees, I've designed server management systems reducing crashes by 30%, built predictive maintenance models lowering downtime by 25%, and developed real-time analytics platforms. I'm proficient in Python, C++, Java, JavaScript, and Dart, with expertise in TensorFlow, PyTorch, HuggingFace, and cloud technologies including AWS, Docker, and Kubernetes.</p>
-					<p>
-						<!-- <ul class="fh5co-social-icons">
-							<li><a href="https://twitter.com/prathamssaraf"><i class="icon-twitter2" style="font-size: 30px;"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/prathamssaraf/"><i class="icon-linkedin2" style="font-size: 30px;"></i></a></li>
-							<li><a href="https://github.com/prathamssaraf"><i class="ion-social-github" style="font-size: 23px; width: 20px; height: 20px;"></i></a></li>
-							<li><a href="https://leetcode.com/prathamssaraf/"><i class="ion-code" style="font-size: 23px; width: 100px; height: 100px;"></i></a></li>
-						  </ul> -->
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Bio -->
+        <p class="max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
+            Distilling complex AI models into elegant, real-world solutions. Specializing in Deep Learning, Computer Vision, and NLP. Currently a Research Assistant at NYU focusing on facial morphing detection.
+        </p>
 
-	<div id="fh5co-resume" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>My Resume</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Work Experience</h3></div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Software Engineering Intern</h3>
-									<span class="company">Hewlett Packard Enterprise (HPE), Mumbai - July 2023 - July 2024</span>
-								</div>
-								<div class="timeline-body">
-									<div>
-										<ul>
-										  <li>Designed server management system using Isolation Forest, reducing potential crashes and vulnerabilities by 30%.</li>
-										  <li>Built alert manager with Prometheus, Loki, and Grafana for real-time anomaly detection across distributed servers.</li>
-										  <li>Optimized MicroStrategy analytics dashboard, reducing query latency 10x and improving performance for thousands of daily users.</li>
-										  <li>Developed YOLO-based document classification pipeline (95% accuracy), automating sensitive info detection & masking.</li>
-										  <li>Collaborated with cross-functional teams to deploy anomaly detection pipeline across 100+ enterprise servers.</li>
-										</ul>
-									  </div>
-									  
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Project Intern</h3>
-									<span class="company">Oil and Natural Gas Company (ONGC), Mumbai - June 2023 - July 2023</span>
-								</div>
-								<div class="timeline-body">
-									<div>
-										<ul>
-										  <li>Built predictive maintenance model (Random Forest, XGBoost), lowering equipment downtime by 25%.</li>
-										  <li>Partnered with electronics team to refine feature selection, improving analysis precision by 15%.</li>
-										  <li>Developed real-time analytics platform for sensor data visualization, increasing decision-making speed by 8%.</li>
-										  <li>Streamlined sensor data pipelines using optimized batch processing, reducing storage overhead and improving query efficiency by 12%.</li>
-										</ul>
-									  </div>
-									  
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Software Engineering Intern</h3>
-									<span class="company">OnFees, Mumbai - January 2023 - February 2023</span>
-								</div>
-								<div class="timeline-body">
-									<div>
-										<ul>
-										  <li>Integrated news feed and chat widget into mobile app, boosting user engagement by 20%.</li>
-										  <li>Contributed to 10 feature updates in EdFly app with a 15-member team, improving release velocity by 25%.</li>
-										</ul>
-									  </div>
-									  
-							</div>
-						</li>
-						
-						
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+            <a href="pratham_resume_oct_new.pdf" target="_blank" class="group flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
+                <span class="material-symbols-outlined text-xl">download</span>
+                <span>Download Resume</span>
+            </a>
+            <a href="#projects" class="group flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-8 py-4 text-base font-bold text-white hover:bg-white/5 transition-all">
+                <span>Explore Work</span>
+                <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+    </div>
+</main>
 
-						<br>
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Education</h3></div>
-						</li>
-						
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">New York University</h3>
-									<span class="company">Masters in Computer Science - Expected: May 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>CGPA: 3.88/4.0<br>
-									TA: Deep Learning — Assisted 120+ graduate students with coursework, assignments, and lab sessions.<br>
-									RA: AI & Neuroscience Research — Working with Profs. Banerjee & Froemke on facial morphing detection pipelines and vision models for behavioral neuroscience.<br>
-									Coursework: Big Data, Artificial Intelligence, Deep Learning, Opensource Development, Information Visualization, Design & Analysis of Algorithms</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Manipal University Jaipur</h3>
-									<span class="company">B.Tech in Data Science Engineering - July 2024</span>
-								</div>
-								<div class="timeline-body">
-									<p>CGPA: 8.91/10.0 - Received the Dean's List Excellence in Academics Award<br>
-									Coursework: Data Structures, OOPS, Computer Networks, OS, Machine Learning, NLP, Artificial Intelligence, Big Data Analytics</p>
-								</div>
-							</div>
-						</li>
-			    	</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="fh5co-research" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Research Experience</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-search"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Facial Morphing Detection (NYU – Forensics AI)</h3>
-									<span class="company">Prof. S. Banerjee, NYU - July 2025 - Present</span>
-								</div>
-								<div class="timeline-body">
-									<div>
-										<ul>
-										  <li>Built ML pipeline using FISWG 19-feature framework and CLIP-based NLP integration for forensic biometric analysis.</li>
-										  <li>Active Research: Exploring distillation of Qwen2.5-72B models into lightweight 7B architectures for faster, resource-efficient detection.</li>
-										  <li>Developing advanced facial morphing detection systems using PyTorch, Qwen 2.5, Molmo 2, and HuggingFace transformers.</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-search"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Computational Neuroscience (NYU Langone)</h3>
-									<span class="company">Prof. Robert Froemke, NYU Langone Health - July 2025 - Present</span>
-								</div>
-								<div class="timeline-body">
-									<div>
-										<ul>
-										  <li>Automated social behaviour quantification from video using ML, improving accuracy vs. manual annotations.</li>
-										  <li>Active Research: Developing a computer vision model to trace mice movement patterns from video data, enabling precise behavioural mapping in neural circuit studies.</li>
-										  <li>Implementing TensorFlow and OpenCV-based systems for behavioral analysis in neuroscience research applications.</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Stats Footer -->
+<div class="relative z-10 w-full border-t border-border-dark bg-background-dark/50 backdrop-blur-sm py-8">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+        <div class="flex flex-col gap-1">
+            <span class="text-2xl font-bold text-white">3.926</span>
+            <span class="text-xs text-text-dim uppercase tracking-wider">GPA (NYU)</span>
+        </div>
+        <div class="flex flex-col gap-1">
+            <span class="text-2xl font-bold text-white">2</span>
+            <span class="text-xs text-text-dim uppercase tracking-wider">Research Positions</span>
+        </div>
+        <div class="flex flex-col gap-1">
+            <span class="text-2xl font-bold text-white">4+</span>
+            <span class="text-xs text-text-dim uppercase tracking-wider">Years Coding</span>
+        </div>
+        <div class="flex flex-col gap-1 items-center md:items-end">
+            <div class="flex -space-x-2 mb-1">
+                <div class="h-6 w-6 rounded-full bg-slate-700 ring-2 ring-background-dark flex items-center justify-center text-[10px] font-bold">PY</div>
+                <div class="h-6 w-6 rounded-full bg-slate-700 ring-2 ring-background-dark flex items-center justify-center text-[10px] font-bold">ML</div>
+                <div class="h-6 w-6 rounded-full bg-slate-700 ring-2 ring-background-dark flex items-center justify-center text-[10px] font-bold">AI</div>
+            </div>
+            <span class="text-xs text-text-dim uppercase tracking-wider">Core Stack</span>
+        </div>
+    </div>
+</div>
 
-	<div id="fh5co-features" class="animate-box">
-		<div class="container">
-			<div class="services-padding">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">	
-						<h2>My Projects</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/portfolio-1.jpg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">Intelligent DNS Security Platform</span>
-								<h3><a href="#">GuardNet</a></h3>
-								<p>Built an enterprise-grade DNS filtering platform blocking malware, phishing, and ads with real-time threat intelligence feeds.<br>Designed Go-based DNS resolver with caching, achieving <15ms response times. Developed Node.js API gateway and React dashboard.</p>
-								<ul class="stuff">
-									<li><a href="https://github.com/prathamssaraf/GuardNet">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
-							</div> 
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/portfolio-2.jpg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">AI Nutrition & Health Assistant</span>
-								<h3><a href="#">WholeSight</a></h3>
-								<p>Developed a cross-platform mobile app with AI-powered food recognition (>90% accuracy) and multimodal logging (camera, barcode, voice, text).<br>Integrated Firebase and applied Clean Architecture + BLoC pattern for scalability.</p>
-								<ul class="stuff">
-									<li><a href="https://github.com/prathamssaraf/WholeSight">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
-							</div> 
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/portfolio-3.jpg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">Expense Tracking Application</span>
-								<h3><a href="#">Expensify</a></h3>
-								<p>Built an expense tracking app using Flutter with local storage (SQLite) for data persistence and Provider state management.<br>Features include expense categorization, monthly analytics, and data visualization for personal finance management.</p>
-								<ul class="stuff">
-									<li><a href="https://github.com/prathamssaraf/Expensify">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
-							</div> 
-						</div>
-					</div>
-					
-				
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Projects Section -->
+<section class="relative z-10 w-full py-16 blueprint-grid" id="projects">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-primary pl-6 py-2 mb-10">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-500/20 text-green-400 border border-green-500/30 uppercase tracking-wider">System Normal</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-black text-white">System Modules // Projects</h2>
+            <p class="text-text-dim text-sm font-mono">> Active systems: 3 identified. Chief Architect: <span class="text-white font-bold">Pratham Saraf</span></p>
+        </div>
 
-	<div id="fh5co-skills" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Technical Skills</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-code"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Programming Languages</h3>
-							<p>Python, C++, Java, JavaScript, Dart, SQL</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-database"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Databases</h3>
-							<p>PostgreSQL, MySQL, SQLite, MongoDB</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-settings"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Frameworks</h3>
-							<p>TensorFlow, PyTorch, HuggingFace, Flask, React, Flutter, Hadoop</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-cloud"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Cloud & DevOps</h3>
-							<p>AWS (EC2, S3, Lambda), Docker, Kubernetes, Git, CI/CD</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-brain"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>AI/ML & Generative AI</h3>
-							<p>Computer Vision (YOLO, OpenCV), NLP (Transformers, CLIP), LLM (Gemini API), Model Training & Deployment</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 text-center">
-					<div class="feature-left">
-						<span class="icon">
-							<i class="icon-tools"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Tools & Platforms</h3>
-							<p>Firebase, MicroStrategy, Linux, VS Code, Prometheus, Grafana</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- GuardNet -->
+            <article class="group flex flex-col bg-card-dark border border-border-dark hover:border-primary/50 transition-all rounded-lg overflow-hidden glow-box">
+                <div class="flex items-center justify-between px-5 py-3 border-b border-border-dark bg-[#141b29]">
+                    <h3 class="text-white text-lg font-bold flex items-center gap-2">
+                        GuardNet
+                        <span class="flex size-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    </h3>
+                    <span class="text-xs font-mono text-green-400">[STATUS: ONLINE]</span>
+                </div>
+                <div class="p-5 flex flex-col gap-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">PYTHON</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">ML</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">CYBERSECURITY</span>
+                    </div>
+                    <p class="text-text-dim text-sm leading-relaxed">Intelligent DNS Security system using Machine Learning to detect and block malicious domains in real-time.</p>
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-8 text-sm font-mono border-t border-border-dark pt-3">
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">TYPE</span><span class="text-white">Security</span></div>
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">STACK</span><span class="text-primary font-bold">ML/DNS</span></div>
+                    </div>
+                    <a href="https://github.com/prathamssaraf/GuardNet" target="_blank" class="group/btn flex items-center justify-center gap-2 bg-[#0f1520] hover:bg-primary border border-border-dark hover:border-primary text-white text-xs font-mono py-2 rounded transition-all">
+                        <span class="text-primary group-hover/btn:text-white">></span> git clone repo
+                    </a>
+                </div>
+            </article>
 
-	<!-- <div id="fh5co-skills" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Skills</h2>
-				</div>
-			</div>
-			<div class="row row-pb-md">
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="95"><span><strong>HTML5</strong>95%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="93"><span><strong>CSS3</strong>93%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>jQuery</strong>90%</span></div>
-				</div>
+            <!-- WholeSight -->
+            <article class="group flex flex-col bg-card-dark border border-border-dark hover:border-primary/50 transition-all rounded-lg overflow-hidden glow-box">
+                <div class="flex items-center justify-between px-5 py-3 border-b border-border-dark bg-[#141b29]">
+                    <h3 class="text-white text-lg font-bold flex items-center gap-2">
+                        WholeSight
+                        <span class="flex size-2 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
+                    </h3>
+                    <span class="text-xs font-mono text-blue-400">[STATUS: DEPLOYED]</span>
+                </div>
+                <div class="p-5 flex flex-col gap-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">PYTHON</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">OPENCV</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">VISION</span>
+                    </div>
+                    <p class="text-text-dim text-sm leading-relaxed">AI-powered nutrition assistant using Computer Vision to estimate calories and macronutrients from food images.</p>
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-8 text-sm font-mono border-t border-border-dark pt-3">
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">TYPE</span><span class="text-white">HealthTech</span></div>
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">STACK</span><span class="text-primary font-bold">CV/AI</span></div>
+                    </div>
+                    <a href="https://github.com/prathamssaraf/WholeSight" target="_blank" class="group/btn flex items-center justify-center gap-2 bg-[#0f1520] hover:bg-primary border border-border-dark hover:border-primary text-white text-xs font-mono py-2 rounded transition-all">
+                        <span class="text-primary group-hover/btn:text-white">></span> git clone repo
+                    </a>
+                </div>
+            </article>
 
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="89"><span><strong>PHP</strong>89%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="85"><span><strong>MySQL</strong>85%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>AngularJS</strong>90%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="85"><span><strong>Ruby</strong>85%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>Java</strong>90%</span></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="progress-wrap">
-						<h3><span class="name-left">HTML5/CSS3</span><span class="value-right">95%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">WordPress</span><span class="value-right">90%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-2 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">PHP</span><span class="value-right">80%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">Java</span><span class="value-right">85%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-4 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-						  </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="progress-wrap">
-						<h3><span class="name-left">Design</span><span class="value-right">100%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-5 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">Ruby</span><span class="value-right">70%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-striped active" role="progressbar"
-						  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">Python</span><span class="value-right">85%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">jQuery</span><span class="value-right">75%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-						  </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+            <!-- Expensify -->
+            <article class="group flex flex-col bg-card-dark border border-border-dark hover:border-primary/50 transition-all rounded-lg overflow-hidden glow-box">
+                <div class="flex items-center justify-between px-5 py-3 border-b border-border-dark bg-[#141b29]">
+                    <h3 class="text-white text-lg font-bold flex items-center gap-2">
+                        Expensify
+                        <span class="flex size-2 rounded-full bg-yellow-500 shadow-[0_0_8px_#eab308]"></span>
+                    </h3>
+                    <span class="text-xs font-mono text-yellow-500">[STATUS: STABLE]</span>
+                </div>
+                <div class="p-5 flex flex-col gap-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">NLP</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">BACKEND</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">FINTECH</span>
+                    </div>
+                    <p class="text-text-dim text-sm leading-relaxed">Smart Expense Tracking application leveraging NLP to automatically categorize transactions and generate insights.</p>
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-8 text-sm font-mono border-t border-border-dark pt-3">
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">TYPE</span><span class="text-white">FinTech</span></div>
+                        <div class="flex justify-between"><span class="text-text-dim text-xs">STACK</span><span class="text-primary font-bold">NLP</span></div>
+                    </div>
+                    <a href="https://github.com/prathamssaraf/Expensify" target="_blank" class="group/btn flex items-center justify-center gap-2 bg-[#0f1520] hover:bg-primary border border-border-dark hover:border-primary text-white text-xs font-mono py-2 rounded transition-all">
+                        <span class="text-primary group-hover/btn:text-white">></span> git clone repo
+                    </a>
+                </div>
+            </article>
 
-	<!-- <div id="fh5co-work" class="fh5co-bg-dark">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Projects</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-1.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-2.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Brading</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-3.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-4.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Design</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-5.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Website</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-6.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-7.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Brading</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-8.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
+            <!-- Add New Module Placeholder -->
+            <article class="flex flex-col justify-center items-center bg-[#111722] border-2 border-dashed border-border-dark hover:border-primary/30 transition-all rounded-lg min-h-[250px] p-8 group cursor-pointer opacity-60 hover:opacity-100">
+                <div class="size-16 rounded-full bg-surface-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-text-dim">add</span>
+                </div>
+                <h3 class="text-text-dim font-mono text-sm uppercase tracking-widest mb-1">More Projects</h3>
+                <p class="text-[10px] text-text-dim/50 font-mono">LOADING...</p>
+            </article>
+        </div>
+    </div>
+</section>
 
-	<!-- <div id="fh5co-blog">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Post on Medium</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-1.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Photoshoot On The Street</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-2.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Surfing at Philippines</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-3.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Capture Living On Uderwater</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	
-	<div id="fh5co-activities" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Extracurricular Activities</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="timeline-panel">
-						<div class="timeline-body">
-							<div class="text-center">
-								<h3>IEEE India Council Hackathon Mentor</h3>
-								<p><strong>IC Hack 2023</strong></p>
-								<p>Mentored 10+ participants at the IEEE India Council Hackathon, providing guidance in app development and offering technical expertise in mobile application development and software engineering best practices.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Work Experience Section -->
+<section class="relative z-10 w-full py-16" id="experience">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-primary pl-6 py-2 mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white">Work Experience // Career Log</h2>
+            <p class="text-text-dim text-sm font-mono">> Professional internships and industry contributions</p>
+        </div>
 
-	<div id="fh5co-started" class="fh5co-bg-dark">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hire Me!</h2>
-					<p>With a strong background in data science and a passion for using technology to solve complex problems, I am excited to join your team and make a significant impact on your next machine learning or deep learning project. Let's build innovative solutions together.</p>
-					<p><a href="#fh5co-consult" class="btn btn-default btn-lg">Contact Me</a></p>
-				</div>
-			</div>
-		</div>
-	</div> 
+        <div class="space-y-6">
+            <!-- HPE -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer" onclick="openModal('hpe-modal')">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-[#141b29]">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+                            <span class="material-symbols-outlined">dns</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Hewlett Packard Enterprise</h3>
+                            <p class="text-sm text-primary font-mono">Software Engineering Intern</p>
+                        </div>
+                    </div>
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm text-white font-mono">Jul 2023 - Jul 2024</p>
+                        <p class="text-xs text-text-dim">Mumbai, India</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-primary">▸</span>Designed server management system using Isolation Forest, reducing crashes by 30%</li>
+                        <li class="flex items-start gap-2"><span class="text-primary">▸</span>Built alert manager with Prometheus, Loki, Grafana for real-time anomaly detection</li>
+                        <li class="flex items-start gap-2"><span class="text-primary">▸</span>Optimized MicroStrategy analytics dashboard, reducing query latency 10x</li>
+                        <li class="flex items-start gap-2"><span class="text-primary">▸</span>Developed YOLO-based document classification pipeline (95% accuracy)</li>
+                    </ul>
+                </div>
+            </div>
 
-	<div id="fh5co-consult">
-		<div class="video fh5co-video" style="background-image: url(images/cover_bg_1.jpg);">
-			<div class="overlay"></div>
-		</div>
-		<div class="choose animate-box">
-			<h2>Contact</h2>
-			<!-- Contact form status messages -->
-			<div id="contact-status" style="display: none; margin-bottom: 20px; padding: 10px; border-radius: 4px;"></div>
-			<form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-				<!-- Web3Forms Access Key -->
-				<input type="hidden" name="access_key" value="b39e253a-3a97-4764-ae3f-590e766b5082">
-				<input type="hidden" name="subject" value="New Contact from Portfolio">
-				<input type="hidden" name="from_name" value="Portfolio Contact Form">
-				
-				<div class="row form-group">
-					<div class="col-md-6">
-						<input type="text" name="firstname" class="form-control" placeholder="Your firstname" required>
-					</div>
-				</div>
-				<div class="row form-group">
-					<div class="col-md-6">
-						<input type="text" name="lastname" class="form-control" placeholder="Your lastname" required>
-					</div>
-				</div>
-	
-				<div class="row form-group">
-					<div class="col-md-12">
-						<input type="email" name="email" class="form-control" placeholder="Your email address" required>
-					</div>
-				</div>
-	
-				<div class="row form-group">
-					<div class="col-md-12">
-						<input type="text" name="subject" class="form-control" placeholder="Your subject of this message" required>
-					</div>
-				</div>
-	
-				<div class="row form-group">
-					<div class="col-md-12">
-						<textarea name="message" cols="30" rows="10" class="form-control" placeholder="Say something about us" required></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="submit" id="submit-btn" value="Send Message" class="btn btn-primary">
-				</div>
-	
-			</form>    
-		</div>
-	</div>
-	</div>
-	
-	<div id="fh5co-footer" style="color: white;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>&copy; 2017 Free HTML5 Template. All Rights Reserved. <br>Designed by <a href="http://freehtml5.co" target="_blank"></a> Demo Images: <a href="http://unsplash.com" target="_blank"></a></p>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- ONGC -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-red-500/50 transition-all cursor-pointer" onclick="openModal('ongc-modal')">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-[#141b29]">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 border border-red-500/20">
+                            <span class="material-symbols-outlined">oil_barrel</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Oil and Natural Gas Corporation</h3>
+                            <p class="text-sm text-red-400 font-mono">Project Intern</p>
+                        </div>
+                    </div>
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm text-white font-mono">Jun 2023 - Jul 2023</p>
+                        <p class="text-xs text-text-dim">Mumbai, India</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-red-400">▸</span>Built predictive maintenance model (Random Forest, XGBoost), lowering downtime by 25%</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400">▸</span>Partnered with electronics team to refine feature selection, improving precision by 15%</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400">▸</span>Developed real-time analytics platform for sensor data visualization</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400">▸</span>Streamlined sensor data pipelines, improving query efficiency by 12%</li>
+                    </ul>
+                </div>
+            </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
-	
-	
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- Google Map -->
-	
-	
-	<!-- Main -->
-	<script src="js/main.js"></script>
+            <!-- OnFees -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-amber-500/50 transition-all cursor-pointer" onclick="openModal('onfees-modal')">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-[#141b29]">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">OnFees</h3>
+                            <p class="text-sm text-amber-400 font-mono">Software Engineering Intern</p>
+                        </div>
+                    </div>
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm text-white font-mono">Jan 2023 - Feb 2023</p>
+                        <p class="text-xs text-text-dim">Mumbai, India</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-amber-400">▸</span>Integrated news feed and chat widget, boosting user engagement by 20%</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-400">▸</span>Contributed to 10 feature updates in EdFly app with 15-member team</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-400">▸</span>Improved release velocity by 25% through agile collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-	</body>
+<!-- Education Section -->
+<section class="relative z-10 w-full py-16" id="education">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-accent-cyan pl-6 py-2 mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white">Education // Academic Records</h2>
+            <p class="text-text-dim text-sm font-mono">> Formal training and academic achievements</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- NYU -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-6 hover:border-accent-cyan/50 cursor-pointer transition-all relative overflow-hidden" onclick="openModal('nyu-modal')">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-accent-cyan/10 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="size-14 rounded-xl bg-accent-cyan/10 flex items-center justify-center text-accent-cyan border border-accent-cyan/20">
+                            <span class="material-symbols-outlined text-2xl">school</span>
+                        </div>
+                        <span class="px-3 py-1 rounded bg-accent-cyan/10 text-accent-cyan text-xs font-mono border border-accent-cyan/20">CURRENT</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">New York University</h3>
+                    <p class="text-accent-cyan font-medium mb-3">M.S. Computer Science</p>
+                    <p class="text-text-dim text-sm mb-4">Expected May 2026 • CGPA: 3.926/4.0</p>
+                    <div class="space-y-2 text-sm text-text-dim">
+                        <p><span class="text-white font-bold">TA:</span> Deep Learning — Assisting 120+ grad students</p>
+                        <p><span class="text-white font-bold">RA:</span> AI & Neuroscience Research with Profs. Banerjee & Froemke</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-border-dark">
+                        <p class="text-xs text-text-dim font-mono">Coursework: Big Data, AI, Deep Learning, Info Visualization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manipal -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-6 hover:border-amber-500/50 cursor-pointer transition-all relative overflow-hidden" onclick="openModal('manipal-modal')">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="size-14 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                            <span class="material-symbols-outlined text-2xl">history_edu</span>
+                        </div>
+                        <span class="px-3 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-mono border border-amber-500/20">COMPLETED</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Manipal University Jaipur</h3>
+                    <p class="text-amber-400 font-medium mb-3">B.Tech Data Science & Engineering</p>
+                    <p class="text-text-dim text-sm mb-4">July 2024 • CGPA: 8.91/10.0</p>
+                    <div class="space-y-2 text-sm text-text-dim">
+                        <p><span class="text-amber-400">★</span> Dean's List Excellence in Academics Award</p>
+                        <p><span class="text-white font-bold">Focus:</span> ML, NLP, Big Data Analytics, AI</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-border-dark">
+                        <p class="text-xs text-text-dim font-mono">Coursework: Data Structures, OS, ML, NLP, Networks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Research Experience Section -->
+<section class="relative z-10 w-full py-16" id="research">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-emerald-500 pl-6 py-2 mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white">Research Experience // Active Labs</h2>
+            <p class="text-text-dim text-sm font-mono">> Ongoing research initiatives at NYU</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Facial Morphing Detection -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-border-dark bg-[#141b29] flex items-center gap-3">
+                    <span class="flex size-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    <span class="text-xs font-mono text-green-400">ACTIVE RESEARCH</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-2">Facial Morphing Detection</h3>
+                    <p class="text-sm text-emerald-400 font-mono mb-3">Prof. S. Banerjee, NYU • Jul 2025 - Present</p>
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Built ML pipeline using FISWG 19-feature framework with CLIP-based NLP integration</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Exploring distillation of Qwen2.5-72B into lightweight 7B architectures</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Using PyTorch, Qwen 2.5, Molmo 2, HuggingFace transformers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Computational Neuroscience -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-border-dark bg-[#141b29] flex items-center gap-3">
+                    <span class="flex size-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    <span class="text-xs font-mono text-green-400">ACTIVE RESEARCH</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-2">Computational Neuroscience</h3>
+                    <p class="text-sm text-emerald-400 font-mono mb-3">Prof. Robert Froemke, NYU Langone • Jul 2025 - Present</p>
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Automated social behaviour quantification from video using ML</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Developing CV model to trace mice movement patterns for neural studies</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Implementing TensorFlow and OpenCV-based behavioral analysis systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- VR/AR Dichoptic Rendering -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-border-dark bg-[#141b29] flex items-center gap-3">
+                    <span class="flex size-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    <span class="text-xs font-mono text-green-400">ACTIVE RESEARCH</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-2">VR/AR Dichoptic Rendering Optimization</h3>
+                    <p class="text-sm text-emerald-400 font-mono mb-3">Prof. Sun Qi, Immersive Labs • Jul 2025 - Present</p>
+                    <ul class="space-y-2 text-text-dim text-sm">
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Developing dichoptic foveation technique that selectively blurs one eye while sharpening the other, exploiting binocular fusion to maintain perceptually identical visual quality while reducing rendering compute overhead</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">▸</span>Building real-time rendering pipeline in Unity with Python-based optimization algorithms for asymmetric eye processing in VR/AR headsets</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">UNITY</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">PYTHON</span>
+                        <span class="px-2 py-1 rounded-sm bg-[#232f48] text-[10px] font-mono text-blue-200 border border-blue-900/50">VR/AR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skills Section -->
+<section class="relative z-10 w-full py-16" id="skills">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-primary pl-6 py-2 mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white">Technical Skills // System Specs</h2>
+            <p class="text-text-dim text-sm font-mono">> Full stack of capabilities and proficiencies</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Programming Languages -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-accent-cyan uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">code</span>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-accent-cyan/10 text-accent-cyan text-sm font-mono border border-accent-cyan/20">Python</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">C++</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Java</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">JavaScript</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Dart</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">SQL</span>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-green-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">storage</span>Databases
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-green-500/10 text-green-400 text-sm font-mono border border-green-500/20">PostgreSQL</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">MySQL</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">SQLite</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">MongoDB</span>
+                </div>
+            </div>
+
+            <!-- Frameworks -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-orange-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">hub</span>Frameworks
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-orange-500/10 text-orange-400 text-sm font-mono border border-orange-500/20">TensorFlow</span>
+                    <span class="px-3 py-1.5 rounded bg-orange-500/10 text-orange-400 text-sm font-mono border border-orange-500/20">PyTorch</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">HuggingFace</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Flask</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">React</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Flutter</span>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">cloud</span>Cloud & DevOps
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-blue-500/10 text-blue-400 text-sm font-mono border border-blue-500/20">AWS</span>
+                    <span class="px-3 py-1.5 rounded bg-blue-500/10 text-blue-400 text-sm font-mono border border-blue-500/20">Docker</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Kubernetes</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Git</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">CI/CD</span>
+                </div>
+            </div>
+
+            <!-- AI/ML -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-purple-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">psychology</span>AI/ML
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-purple-500/10 text-purple-400 text-sm font-mono border border-purple-500/20">YOLO</span>
+                    <span class="px-3 py-1.5 rounded bg-purple-500/10 text-purple-400 text-sm font-mono border border-purple-500/20">OpenCV</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Transformers</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">CLIP</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Gemini API</span>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                <h4 class="text-sm font-mono text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">build</span>Tools
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded bg-red-500/10 text-red-400 text-sm font-mono border border-red-500/20">Firebase</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">MicroStrategy</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Prometheus</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Grafana</span>
+                    <span class="px-3 py-1.5 rounded bg-white/5 text-white text-sm font-mono border border-white/10">Linux</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="relative z-10 w-full py-16" id="contact">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col gap-2 border-l-4 border-primary pl-6 py-2 mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-white">System Integration // Contact</h2>
+            <p class="text-text-dim text-sm font-mono">> Initialize communication sequence with System Architect</p>
+        </div>
+
+        <!-- Status Banner -->
+        <div class="mb-10 relative overflow-hidden rounded-lg bg-surface-dark border border-primary/30 p-1">
+            <div class="absolute top-0 left-0 w-1 h-full bg-primary animate-pulse"></div>
+            <div class="flex flex-col sm:flex-row items-center justify-between px-6 py-4 gap-4 bg-primary/5">
+                <div class="flex items-center gap-3">
+                    <div class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </div>
+                    <span class="font-bold tracking-wide text-sm">SYSTEM STATUS: ONLINE // OPEN FOR OPPORTUNITIES</span>
+                </div>
+                <div class="font-mono text-xs text-primary bg-primary/10 px-3 py-1 rounded border border-primary/20">TARGET_DATE: MAY_2026</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <div class="bg-surface-dark border border-border-dark rounded-xl p-1">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-[#151b28] rounded-t-lg">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-sm">settings_ethernet</span>
+                        <h3 class="font-bold tracking-wider text-sm">TRANSMISSION_INTERFACE</h3>
+                    </div>
+                    <div class="flex gap-1">
+                        <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-6">
+                        <input type="hidden" name="access_key" value="b39e253a-3a97-4764-ae3f-590e766b5082">
+                        <input type="hidden" name="subject" value="New Contact from Portfolio">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-mono text-text-dim uppercase tracking-wider">sender_identity [name]</label>
+                                <input name="firstname" class="w-full bg-background-dark border border-border-dark rounded-md py-2.5 px-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono text-sm" placeholder="Your Name" type="text" required/>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-mono text-text-dim uppercase tracking-wider">origin_node [email]</label>
+                                <input name="email" class="w-full bg-background-dark border border-border-dark rounded-md py-2.5 px-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono text-sm" placeholder="email@domain.com" type="email" required/>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-mono text-text-dim uppercase tracking-wider">data_payload [message]</label>
+                            <textarea name="message" class="w-full bg-background-dark border border-border-dark rounded-md py-3 px-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono text-sm resize-none" placeholder="Initialize data transfer..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-600 transition-colors px-8 py-3 text-white font-bold tracking-wider flex items-center justify-center gap-3 rounded-md">
+                            <span class="material-symbols-outlined">send</span>
+                            <span>INITIATE_TRANSFER</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Resume & Location -->
+            <div class="flex flex-col gap-6">
+                <!-- Resume Card -->
+                <div class="bg-gradient-to-br from-surface-dark to-[#0f1520] border border-border-dark rounded-xl p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                        <span class="material-symbols-outlined text-9xl">fingerprint</span>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-primary text-xs font-mono font-bold mb-1 border border-primary/30 inline-block px-2 py-0.5 rounded bg-primary/10">ACCESS_TOKEN: GRANTED</div>
+                        <h3 class="text-2xl font-bold text-white mt-2 mb-4">MASTER_RESUME</h3>
+                        <p class="text-text-dim text-sm leading-relaxed mb-6">Full schematic of academic history, research publications, and technical stack available for extraction.</p>
+                        <a href="pratham_resume_oct_new.pdf" target="_blank" class="w-full bg-white text-background-dark hover:bg-gray-200 font-bold py-3 px-4 rounded-md flex items-center justify-center gap-2 transition-colors">
+                            <span class="material-symbols-outlined">download</span>
+                            DOWNLOAD_RESUME.PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+                    <h4 class="text-sm font-mono text-text-dim uppercase tracking-widest mb-4">GEOLOCATION_DATA</h4>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex justify-between items-center border-b border-dashed border-border-dark pb-3">
+                            <span class="text-text-dim text-xs font-mono">SECTOR</span>
+                            <span class="text-white font-bold text-sm">BROOKLYN, NY</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-dashed border-border-dark pb-3">
+                            <span class="text-text-dim text-xs font-mono">TIMEZONE</span>
+                            <span class="text-white font-mono text-sm" id="local-time">--:-- EST</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-dim text-xs font-mono">EMAIL</span>
+                            <a href="mailto:prathamssaraf@gmail.com" class="text-primary font-mono text-sm hover:underline">prathamssaraf@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- External Peripherals (Social Links) -->
+        <div class="mt-12 border-t border-border-dark pt-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-2 text-white font-bold">
+                        <span class="material-symbols-outlined text-primary text-xl">hub</span>
+                        <span>EXTERNAL PERIPHERALS</span>
+                    </div>
+                    <p class="text-text-dim text-xs font-mono">Establish secure handshake via supported protocols.</p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a class="group flex items-center gap-3 bg-surface-dark hover:bg-[#151b28] border border-border-dark hover:border-primary pr-5 pl-4 py-3 rounded-lg transition-all" href="https://www.linkedin.com/in/prathamssaraf/" target="_blank">
+                        <div class="bg-[#0077b5]/20 p-2 rounded text-[#0077b5]"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-text-dim font-mono uppercase">PORT: LINKEDIN</span>
+                            <span class="text-white text-sm font-bold group-hover:text-primary transition-colors">/prathamssaraf</span>
+                        </div>
+                    </a>
+                    <a class="group flex items-center gap-3 bg-surface-dark hover:bg-[#151b28] border border-border-dark hover:border-primary pr-5 pl-4 py-3 rounded-lg transition-all" href="https://github.com/prathamssaraf" target="_blank">
+                        <div class="bg-gray-700/30 p-2 rounded text-white"><i class="fab fa-github"></i></div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-text-dim font-mono uppercase">PORT: GITHUB</span>
+                            <span class="text-white text-sm font-bold group-hover:text-primary transition-colors">/prathamssaraf</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-border-dark p-6 text-center">
+    <p class="text-xs font-mono text-text-dim">© 2026 Pratham Saraf // <span class="animate-pulse">_</span> system ready. waiting for command...</p>
+</footer>
+
+<!-- NYU Modal -->
+<div class="modal-overlay" id="nyu-modal" onclick="closeModal('nyu-modal')">
+    <div class="modal-content p-8" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 size-10 rounded-full bg-white/10 hover:bg-primary/30 flex items-center justify-center text-white transition-colors" onclick="closeModal('nyu-modal')">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-16 rounded-xl bg-accent-cyan/10 flex items-center justify-center text-accent-cyan border border-accent-cyan/20">
+                <span class="material-symbols-outlined text-3xl">school</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white">New York University</h3>
+                <p class="text-accent-cyan font-medium">M.S. Computer Science</p>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">calendar_month</span>Aug 2024 - May 2026</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">location_on</span>Brooklyn, NY</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">grade</span><span class="font-bold">GPA: 3.926 / 4.0</span></div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-accent-cyan">work</span>Roles</h4>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span><strong>Teaching Assistant</strong> - Deep Learning</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span><strong>Research Assistant</strong> - Facial Morphing Detection</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span><strong>Research Assistant</strong> - Computational Neuroscience (NYU Langone)</span></li>
+            </ul>
+            <div class="h-px bg-border-dark my-4"></div>
+            <a href="nyu_transcript.pdf" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan font-bold hover:bg-accent-cyan/20 transition-colors">
+                <span class="material-symbols-outlined">description</span>View Official Transcript
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- HPE Modal -->
+<div class="modal-overlay" id="hpe-modal" onclick="closeModal('hpe-modal')">
+    <div class="modal-content p-8" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 size-10 rounded-full bg-white/10 hover:bg-primary/30 flex items-center justify-center text-white transition-colors" onclick="closeModal('hpe-modal')">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-16 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+                <span class="material-symbols-outlined text-3xl">dns</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white">Hewlett Packard Enterprise</h3>
+                <p class="text-primary font-medium">Software Engineering Intern</p>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">calendar_month</span>May 2023 - Aug 2023</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">location_on</span>Bangalore, India</div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-primary">rocket_launch</span>Key Achievements</h4>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Designed <strong>Isolation Forest-based server management system</strong> reducing crashes by 30%</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Built <strong>alert manager</strong> with Prometheus, Loki, Grafana</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Developed <strong>YOLO-based document classification</strong> with 95% accuracy</span></li>
+            </ul>
+            <div class="h-px bg-border-dark my-4"></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Python</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Prometheus</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Grafana</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">YOLO</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ONGC Modal -->
+<div class="modal-overlay" id="ongc-modal" onclick="closeModal('ongc-modal')">
+    <div class="modal-content p-8" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 size-10 rounded-full bg-white/10 hover:bg-primary/30 flex items-center justify-center text-white transition-colors" onclick="closeModal('ongc-modal')">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-16 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 border border-red-500/20">
+                <span class="material-symbols-outlined text-3xl">oil_barrel</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white">ONGC</h3>
+                <p class="text-red-400 font-medium">Project Intern</p>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">calendar_month</span>Jun 2022 - Aug 2022</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">location_on</span>Ahmedabad, India</div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-red-400">rocket_launch</span>Key Achievements</h4>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Built <strong>predictive maintenance model</strong> reducing downtime by 25%</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Improved analysis precision by 15%</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Developed <strong>real-time analytics platform</strong> for sensor data</span></li>
+            </ul>
+            <div class="h-px bg-border-dark my-4"></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm">Python</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Pandas</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Scikit-learn</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Manipal Modal -->
+<div class="modal-overlay" id="manipal-modal" onclick="closeModal('manipal-modal')">
+    <div class="modal-content p-8" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 size-10 rounded-full bg-white/10 hover:bg-amber-500/30 flex items-center justify-center text-white transition-colors" onclick="closeModal('manipal-modal')">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-16 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                <span class="material-symbols-outlined text-3xl">history_edu</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white">Manipal University Jaipur</h3>
+                <p class="text-amber-400 font-medium">B.Tech Data Science & Engineering</p>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">calendar_month</span>Aug 2020 - July 2024</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">location_on</span>Jaipur, India</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">grade</span><span class="font-bold">CGPA: 8.91 / 10.0</span></div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-amber-400">emoji_events</span>Achievements</h4>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-400 text-lg">star</span><span><strong>Dean's List Excellence in Academics Award</strong></span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Graduated with Distinction</span></li>
+            </ul>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-amber-400">menu_book</span>Key Coursework</h4>
+            <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-sm">Machine Learning</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">NLP</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Data Structures</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Computer Networks</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Big Data Analytics</span>
+            </div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <a href="manipal_transcript.pdf" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold hover:bg-amber-500/20 transition-colors">
+                <span class="material-symbols-outlined">description</span>View Official Transcript
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- OnFees Modal -->
+<div class="modal-overlay" id="onfees-modal" onclick="closeModal('onfees-modal')">
+    <div class="modal-content p-8" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 size-10 rounded-full bg-white/10 hover:bg-amber-500/30 flex items-center justify-center text-white transition-colors" onclick="closeModal('onfees-modal')">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-16 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                <span class="material-symbols-outlined text-3xl">payments</span>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white">OnFees</h3>
+                <p class="text-amber-400 font-medium">Software Engineering Intern</p>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">calendar_month</span>Jan 2023 - Feb 2023</div>
+            <div class="flex items-center gap-3 text-gray-300"><span class="material-symbols-outlined text-text-dim">location_on</span>Mumbai, India</div>
+            <div class="h-px bg-border-dark my-4"></div>
+            <h4 class="text-white font-bold flex items-center gap-2"><span class="material-symbols-outlined text-amber-400">rocket_launch</span>Key Achievements</h4>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Integrated <strong>news feed and chat widget</strong> into mobile app, boosting user engagement by 20%</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Contributed to <strong>10 feature updates</strong> in EdFly app with 15-member team</span></li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span><span>Improved <strong>release velocity by 25%</strong> through agile collaboration</span></li>
+            </ul>
+            <div class="h-px bg-border-dark my-4"></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-sm">Flutter</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Dart</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Firebase</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-sm">Agile</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    // Live time update
+    function updateTime() {
+        const now = new Date();
+        const options = { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'America/New_York' };
+        const timeStr = now.toLocaleTimeString('en-US', options);
+        document.getElementById('local-time').innerHTML = timeStr + ' <span class="text-text-dim">EST</span>';
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Contact form
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const button = form.querySelector('button[type="submit"]');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> SENDING...';
+        button.disabled = true;
+        try {
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+            const data = await response.json();
+            if (data.success) {
+                button.innerHTML = '<span class="material-symbols-outlined">check_circle</span> TRANSMITTED!';
+                button.classList.remove('bg-primary');
+                button.classList.add('bg-green-500');
+                form.reset();
+                setTimeout(() => { button.innerHTML = originalHTML; button.classList.remove('bg-green-500'); button.classList.add('bg-primary'); button.disabled = false; }, 3000);
+            } else { throw new Error('Failed'); }
+        } catch (error) {
+            button.innerHTML = '<span class="material-symbols-outlined">error</span> ERROR';
+            button.classList.remove('bg-primary');
+            button.classList.add('bg-red-500');
+            setTimeout(() => { button.innerHTML = originalHTML; button.classList.remove('bg-red-500'); button.classList.add('bg-primary'); button.disabled = false; }, 3000);
+        }
+    });
+
+    // Modal functions
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay.active').forEach(modal => modal.classList.remove('active'));
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Active navigation highlighting on scroll
+    const sections = document.querySelectorAll('main[id], section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function updateActiveNav() {
+        const scrollPos = window.scrollY + 200;
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionId = section.getAttribute('id');
+            if (scrollPos >= sectionTop) {
+                currentSection = sectionId;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Run on page load
+</script>
+
+</body>
 </html>
-

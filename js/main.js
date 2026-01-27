@@ -1,114 +1,180 @@
-;(function () {
-	
+; (function () {
+
 	'use strict';
 
 	var isMobile = {
-		Android: function() {
+		Android: function () {
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() {
+		BlackBerry: function () {
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() {
+		iOS: function () {
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() {
+		Opera: function () {
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() {
+		Windows: function () {
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() {
+		any: function () {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
-	
-	var fullHeight = function() {
 
-		if ( !isMobile.any() ) {
+	var fullHeight = function () {
+
+		if (!isMobile.any()) {
 			$('.js-fullheight').css('height', $(window).height());
-			$(window).resize(function(){
+			$(window).resize(function () {
 				$('.js-fullheight').css('height', $(window).height());
 			});
 		}
 	};
 
 	// Parallax
-	var parallax = function() {
+	var parallax = function () {
 		$(window).stellar();
 	};
 
-	var contentWayPoint = function() {
+	var contentWayPoint = function () {
 		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
+		$('.animate-box').waypoint(function (direction) {
 
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-				
+			if (direction === 'down' && !$(this.element).hasClass('animated-fast')) {
+
 				i++;
 
 				$(this.element).addClass('item-animate');
-				setTimeout(function(){
+				setTimeout(function () {
 
-					$('body .animate-box.item-animate').each(function(k){
+					$('body .animate-box.item-animate').each(function (k) {
 						var el = $(this);
-						setTimeout( function () {
+						setTimeout(function () {
 							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
+							if (effect === 'fadeIn') {
 								el.addClass('fadeIn animated-fast');
-							} else if ( effect === 'fadeInLeft') {
+							} else if (effect === 'fadeInLeft') {
 								el.addClass('fadeInLeft animated-fast');
-							} else if ( effect === 'fadeInRight') {
+							} else if (effect === 'fadeInRight') {
 								el.addClass('fadeInRight animated-fast');
 							} else {
 								el.addClass('fadeInUp animated-fast');
 							}
 
 							el.removeClass('item-animate');
-						},  k * 100, 'easeInOutExpo' );
+						}, k * 100, 'easeInOutExpo');
 					});
-					
+
 				}, 50);
-				
+
 			}
 
-		} , { offset: '85%' } );
+		}, { offset: '85%' });
 	};
 
 
 
-	var goToTop = function() {
+	var goToTop = function () {
 
-		$('.js-gotop').on('click', function(event){
-			
+		$('.js-gotop').on('click', function (event) {
+
 			event.preventDefault();
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 
-		$(window).scroll(function(){
+		$(window).scroll(function () {
 
 			var $win = $(window);
+
+			// Back to top button visibility
 			if ($win.scrollTop() > 200) {
 				$('.js-top').addClass('active');
+				$('.gototop').addClass('visible');
 			} else {
 				$('.js-top').removeClass('active');
+				$('.gototop').removeClass('visible');
+			}
+
+			// Navbar scroll effect
+			if ($win.scrollTop() > 100) {
+				$('.navbar-modern').addClass('scrolled');
+			} else {
+				$('.navbar-modern').removeClass('scrolled');
 			}
 
 		});
-	
+
+	};
+
+	// Mobile Navigation Toggle
+	var mobileNav = function () {
+		$('.nav-toggle').on('click', function () {
+			$('.nav-links').toggleClass('active');
+			var icon = $(this).find('i');
+			if ($('.nav-links').hasClass('active')) {
+				icon.removeClass('fa-bars').addClass('fa-times');
+			} else {
+				icon.removeClass('fa-times').addClass('fa-bars');
+			}
+		});
+
+		// Close menu when clicking a link
+		$('.nav-links a').on('click', function () {
+			$('.nav-links').removeClass('active');
+			$('.nav-toggle i').removeClass('fa-times').addClass('fa-bars');
+		});
+	};
+
+	// Active Navigation Section Highlighting
+	var activeNavSection = function () {
+		var sections = $('main[id], section[id]');
+		var navLinks = $('.nav-links a');
+
+		// Set initial active state
+		var setActiveNav = function() {
+			var current = '';
+			var scrollPos = $(window).scrollTop() + 200;
+
+			sections.each(function () {
+				var top = $(this).offset().top;
+				var id = $(this).attr('id');
+
+				if (scrollPos >= top) {
+					current = id;
+				}
+			});
+
+			navLinks.removeClass('active').css({
+				'color': '',
+				'text-shadow': ''
+			});
+			navLinks.filter('[href="#' + current + '"]').addClass('active').css({
+				'color': '#ffffff',
+				'text-shadow': '0 0 10px rgba(17, 82, 212, 0.5)'
+			});
+		};
+
+		// Run on scroll
+		$(window).scroll(setActiveNav);
+
+		// Run on page load
+		setActiveNav();
 	};
 
 	// Smooth scroll for contact button
-	var smoothScroll = function() {
-		$('a[href*="#"]:not([href="#"])').click(function() {
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	var smoothScroll = function () {
+		$('a[href*="#"]:not([href="#"])').click(function () {
+			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 				if (target.length) {
 					$('html, body').animate({
 						scrollTop: target.offset().top
@@ -119,99 +185,99 @@
 		});
 	};
 
-	var pieChart = function() {
+	var pieChart = function () {
 		$('.chart').easyPieChart({
 			scaleColor: false,
 			lineWidth: 4,
 			lineCap: 'butt',
 			barColor: '#FF9000',
-			trackColor:	"#f5f5f5",
+			trackColor: "#f5f5f5",
 			size: 160,
 			animate: 1000
 		});
 	};
 
-	var skillsWayPoint = function() {
-		if ($('#fh5co-skills').length > 0 ) {
-			$('#fh5co-skills').waypoint( function( direction ) {
-										
-				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( pieChart , 400);					
+	var skillsWayPoint = function () {
+		if ($('#fh5co-skills').length > 0) {
+			$('#fh5co-skills').waypoint(function (direction) {
+
+				if (direction === 'down' && !$(this.element).hasClass('animated')) {
+					setTimeout(pieChart, 400);
 					$(this.element).addClass('animated');
 				}
-			} , { offset: '90%' } );
+			}, { offset: '90%' });
 		}
 
 	};
 
 
 	// Loading page
-	var loaderPage = function() {
+	var loaderPage = function () {
 		$(".fh5co-loader").fadeOut("slow");
 	};
 
-	
+
 	// Contact form handling with Web3Forms
-	var contactForm = function() {
-		$('#contact-form').on('submit', function(e) {
+	var contactForm = function () {
+		$('#contact-form').on('submit', function (e) {
 			e.preventDefault();
-			
+
 			var submitBtn = $('#submit-btn');
 			var statusDiv = $('#contact-status');
 			var form = this;
 			var formData = new FormData(form);
-			
+
 			// Show loading state
 			submitBtn.val('Sending...');
 			submitBtn.prop('disabled', true);
 			statusDiv.hide();
-			
+
 			// Send form data to Web3Forms
 			fetch(form.action, {
 				method: 'POST',
 				body: formData
 			})
-			.then(function(response) {
-				return response.json();
-			})
-			.then(function(data) {
-				if (data.success) {
-					// Show success message
-					statusDiv.html('<strong>Success!</strong> Your message has been sent successfully. I\'ll get back to you soon!');
+				.then(function (response) {
+					return response.json();
+				})
+				.then(function (data) {
+					if (data.success) {
+						// Show success message
+						statusDiv.html('<strong>Success!</strong> Your message has been sent successfully. I\'ll get back to you soon!');
+						statusDiv.css({
+							'background-color': '#d4edda',
+							'border-color': '#c3e6cb',
+							'color': '#155724'
+						});
+						statusDiv.show();
+
+						// Reset form
+						form.reset();
+					} else {
+						throw new Error(data.message || 'Form submission failed');
+					}
+				})
+				.catch(function (error) {
+					console.log('Form submission error:', error);
+
+					// Show error message with fallback
+					statusDiv.html('<strong>Oops!</strong> There was an error sending your message. Please try again or contact me directly at <a href="mailto:prathamssaraf@gmail.com">prathamssaraf@gmail.com</a>');
 					statusDiv.css({
-						'background-color': '#d4edda',
-						'border-color': '#c3e6cb',
-						'color': '#155724'
+						'background-color': '#f8d7da',
+						'border-color': '#f5c6cb',
+						'color': '#721c24'
 					});
 					statusDiv.show();
-					
-					// Reset form
-					form.reset();
-				} else {
-					throw new Error(data.message || 'Form submission failed');
-				}
-			})
-			.catch(function(error) {
-				console.log('Form submission error:', error);
-				
-				// Show error message with fallback
-				statusDiv.html('<strong>Oops!</strong> There was an error sending your message. Please try again or contact me directly at <a href="mailto:prathamssaraf@gmail.com">prathamssaraf@gmail.com</a>');
-				statusDiv.css({
-					'background-color': '#f8d7da',
-					'border-color': '#f5c6cb',
-					'color': '#721c24'
+				})
+				.finally(function () {
+					// Reset button state
+					submitBtn.val('Send Message');
+					submitBtn.prop('disabled', false);
 				});
-				statusDiv.show();
-			})
-			.finally(function() {
-				// Reset button state
-				submitBtn.val('Send Message');
-				submitBtn.prop('disabled', false);
-			});
 		});
 	};
 
-	$(function(){
+	$(function () {
 		contentWayPoint();
 		goToTop();
 		loaderPage();
@@ -221,6 +287,8 @@
 		skillsWayPoint();
 		contactForm();
 		smoothScroll();
+		mobileNav();
+		activeNavSection();
 	});
 
 
