@@ -120,21 +120,16 @@
     <div class="max-w-[1000px] w-full flex flex-col items-center text-center gap-8">
         <!-- Profile Picture -->
         <div class="relative group">
-            <!-- Corner brackets -->
-            <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent-cyan"></div>
-            <div class="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-accent-cyan"></div>
-            <div class="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-accent-cyan"></div>
-            <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-accent-cyan"></div>
             <!-- Glow effect -->
             <div class="absolute inset-0 bg-accent-cyan/20 blur-xl rounded-full scale-110 group-hover:scale-125 transition-transform duration-500"></div>
+            <!-- Ring border -->
+            <div class="absolute inset-0 rounded-full border-2 border-accent-cyan/50 scale-105"></div>
             <!-- Image container -->
-            <div class="relative size-32 sm:size-40 rounded-lg overflow-hidden border border-border-dark bg-surface-dark">
+            <div class="relative size-32 sm:size-40 rounded-full overflow-hidden border-2 border-border-dark bg-surface-dark">
                 <img src="images/pratham.jpg" alt="Pratham Saraf" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"/>
-                <!-- Scanline overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent-cyan/5 to-transparent opacity-50 pointer-events-none"></div>
             </div>
             <!-- ID Label -->
-            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-background-dark border border-border-dark px-3 py-0.5 rounded text-[10px] font-mono text-accent-cyan whitespace-nowrap">
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-background-dark border border-border-dark px-3 py-0.5 rounded-full text-[10px] font-mono text-accent-cyan whitespace-nowrap">
                 ID: SARAF_P
             </div>
         </div>
