@@ -601,6 +601,13 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-top: 5px;
 }
 
+.timeline-body .btn {
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
 @media (max-width: 992px) {
   ul.timeline:before {
     left: 90px;
