@@ -1,0 +1,207 @@
+/* components.css — project-card gizmo + skills rings.
+   Theme-aware through the tokens site.css defines on [data-theme]:
+   --fg, --muted, --line, --accent, --bg, --card. */
+
+/* ------------------------------------------------------------------ gizmo */
+
+/* Only with the live SVG in place; without JS site.css draws a static shape. */
+.card-gizmo.gz-live {
+  --gz-size: 136px;
+  position: relative;
+  min-height: var(--gz-size);
+}
+
+.card-gizmo .gz {
+  display: block;
+  width: var(--gz-size);
+  height: var(--gz-size);
+  overflow: visible;
+  color: var(--fg);
+}
+
+.gz path,
+.gz rect,
+.gz circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.gz-fill {
+  fill: var(--gz-fill, var(--accent));
+}
+
+.gz-echo {
+  fill: none;
+  stroke: var(--gz-fill, var(--accent));
+  stroke-width: 1;
+}
+
+.gz-echo--origin {
+  stroke-dasharray: 2 3;
+}
+
+.gz-edge {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-opacity: 0.72;
+}
+
+.gz-handle {
+  fill: var(--card, var(--bg));
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.gz-cross {
+  fill: none;
+  stroke: var(--gz-on, var(--bg));
+  stroke-width: 1;
+}
+
+.gz-readout {
+  position: absolute;
+  top: calc(var(--gz-size) * 0.03);
+  left: calc(var(--gz-size) * 0.955);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+}
+
+.gz-rot {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.gz-name {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .card-gizmo.gz-live {
+    --gz-size: 112px;
+  }
+}
+
+/* ------------------------------------------------------------------ rings */
+
+/* site.css owns the stage (.rings-stage is the sticky 100svh box inside the
+   240vh section) and the no-JS view (rows hidden, the <dl> shown). This file
+   only styles what rings.js builds, plus a static fallback for the rows if
+   JS runs but rings.js bails out. */
+html.js .rings:not(.rings--live) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+html.js .rings:not(.rings--live) .rings-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--f-display, 'Montserrat', system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(0.9rem, 0.7rem + 0.9vw, 1.35rem);
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+html.js .rings:not(.rings--live) .rings-row li + li::before {
+  content: '\2022';
+  margin: 0 0.55em;
+  color: var(--accent);
+}
+
+html.js .rings:not(.rings--live) #rings-center {
+  display: none;
+}
+
+.rings--live .rings-row {
+  display: none;
+}
+
+/* The dots engine draws the red centre dot on this element's rect, so it is
+   pinned to the exact centre of the rings box; rings.js centres on it too. */
+.rings--live #rings-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* rings.js sizes and offsets this box so it spans the whole stage width
+   (marquees run edge to edge) while staying centred on #rings-center. One SVG
+   per ring inside it; a finished ring's SVG becomes a small rotating layer. */
+.rings-layers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rings-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  max-width: none;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.rings-meter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.rt {
+  font-family: var(--f-display, 'Montserrat', system-ui, sans-serif);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-kerning: normal;
+}
+
+.rt--solid {
+  fill: var(--fg);
+}
+
+.rt--wide {
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+
+.rt--outline {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+
+.rt .rs {
+  fill: var(--accent);
+  stroke: none;
+}

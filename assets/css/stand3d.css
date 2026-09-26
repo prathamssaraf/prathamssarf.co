@@ -1,0 +1,42 @@
+/* stand3d.css — flat-3D standing letters (assets/js/stand3d.js).
+
+   Link this in <head>. It holds only what must work before (or without) the
+   script: hiding the plain text of [data-stand3d] elements until the 3D
+   letters are built. The structural styles of the 3D overlay are injected by
+   stand3d.js itself, so the effect never depends on stylesheet timing.
+
+   Theming, per element (custom properties, inherited):
+     --s3d-face  face color       (default: the element's own color)
+     --s3d-side  extrusion color  (default: var(--accent), else #E5432F)
+
+   Geometry custom properties written by the script (read-only for pages):
+     stage   --pd  camera distance (px)   --st  depth per side layer (px)
+     letter  --c   the glyph (CSS string) --cx/--cy  camera relative to the letter box (px)
+             --hy  baseline in the letter box (px)    --a  angle (deg, 90 flat → 0 standing)
+     layer   --k   side layer index, 1 = right behind the face */
+
+/* Before the script builds the letters, [data-stand3d] elements hide their
+   plain text, so it never shows upright and then drops flat. Only the fill
+   goes transparent: the text keeps its layout and stays in the accessibility
+   tree. Keyed on scripting (no wait for main.js to set html.js); if the
+   script never arrives, the failsafe shows the text after 3 s. */
+@media (scripting: enabled) {
+  [data-stand3d]:not(.s3d-on, .s3d-off) {
+    -webkit-text-fill-color: transparent;
+    animation: s3d-failsafe 0s linear 3s both;
+  }
+}
+html.js [data-stand3d]:not(.s3d-on, .s3d-off) {
+  -webkit-text-fill-color: transparent;
+  animation: s3d-failsafe 0s linear 3s both;
+}
+@keyframes s3d-failsafe {
+  to { -webkit-text-fill-color: currentcolor; }
+}
+
+@media print, (forced-colors: active) {
+  html [data-stand3d] {
+    -webkit-text-fill-color: currentcolor !important;
+    animation: none !important;
+  }
+}
