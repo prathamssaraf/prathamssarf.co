@@ -1183,6 +1183,7 @@ html.reduced .portrait img { transition: none; }
 .stand-head.ball-period::after { width: .24em; height: .24em; }
 .awards { list-style: none; display: grid; gap: 14px; }
 .award {
+  position: relative; /* contains .card-link::after so each row links to its own repo */
   display: grid;
   gap: 8px;
   padding: 22px 26px 26px;
