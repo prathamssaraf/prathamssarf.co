@@ -19,6 +19,12 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTRKMPFGBT"></script>
   <script>
+    // Same opt-out as index.html: ?notrack=1 (?notrack=0 undoes it).
+    try {
+      var nt = new URLSearchParams(location.search).get('notrack');
+      if (nt !== null) localStorage.setItem('notrack', nt === '0' ? '' : '1');
+      if (localStorage.getItem('notrack')) window['ga-disable-G-MTRKMPFGBT'] = true;
+    } catch (e) {}
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
