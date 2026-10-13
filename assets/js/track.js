@@ -1,12 +1,12 @@
 // GA4 events for what visitors actually do: which project, paper or profile
 // they open, whether they grab the resume, and how far down the page they get.
-// No-ops when gtag is missing (blocked, or ?notrack opt-out).
+// Also sent to PostHog. No-ops when neither is loaded (blocked, or ?notrack opt-out).
 (function () {
   'use strict';
 
   function send(name, params) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', name, params);
+    if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    if (window.posthog && window.posthog.capture) window.posthog.capture(name, params);
   }
 
   function sectionOf(el) {
